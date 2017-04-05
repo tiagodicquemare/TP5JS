@@ -74,6 +74,7 @@ function redraw(){
 
 function rgbToHex(rgb) {
 		var r ='', g='', b='';
+		if(rgb!=''){
 		for(var i = 0; rgb[i]!=',';i++){
 			r += rgb[i];
 		}
@@ -87,7 +88,7 @@ function rgbToHex(rgb) {
 			b += rgb[k];
 		}
 		console.log("b = " + b);
-
+		}
 		r = parseInt(r);
 		g = parseInt(g);
 		b = parseInt(b);
