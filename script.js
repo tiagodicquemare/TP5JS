@@ -19,7 +19,6 @@ function addClick(x, y, dragging)
 document.addEventListener("mousedown", function(e){
   var mouseX = e.pageX - div.offsetLeft;
   var mouseY = e.pageY - div.offsetTop;
-  console.log(div.offsetTop);
   paint = true;
   addClick(e.pageX - div.offsetLeft, e.pageY - div.offsetTop, false);
   redraw();
@@ -40,17 +39,20 @@ document.addEventListener("mouseleave", function(e){
 	paint = false;
 });
 
-
+document.getElementById("clearCanvas").addEventListener("click", clear);
+function clear(){
+	window.location.replace(window.location.pathname + window.location.search + window.location.hash);
+}
 
 function redraw(){
-  context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-  context.strokeStyle = "#df4b26";
+  context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+  context.strokeStyle = "#000000";
   context.lineJoin = "round";
   context.lineWidth = 5;
 			
   for(var i=0; i < clickX.length; i++) {		
     context.beginPath();
-    if(clickDrag[i] && i){
+    if(clickDrag[i]){
       context.moveTo(clickX[i-1], clickY[i-1]);
      }else{
        context.moveTo(clickX[i]-1, clickY[i]);
