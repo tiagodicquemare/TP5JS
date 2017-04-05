@@ -38,7 +38,10 @@ document.addEventListener("mouseleave", function(e){
 	paint = false;
 });
 
-
+document.getElementById("clearCanvas").addEventListener("click", clear);
+function clear(){
+	window.location.replace(window.location.pathname + window.location.search + window.location.hash);
+}
 
 function redraw(){
   context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
@@ -50,7 +53,7 @@ function redraw(){
 
   for(var i=0; i < clickX.length; i++) {
     context.beginPath();
-    if(clickDrag[i] && i){
+    if(clickDrag[i]){
       context.moveTo(clickX[i-1], clickY[i-1]);
      }else{
        context.moveTo(clickX[i]-1, clickY[i]);
