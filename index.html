@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-    <title>Canvas</title>
-    <script language="javascript" src="script.js"></script>
+<script language="javascript" src="script.js"></script>
 <body>
 <div id="CanvasBox">
+<canvas id="myCanvas" width="1000" height="500" style="border:1px solid #000000;">
 <canvas id="myCanvas" width="1000" height="300" style="border:1px solid #000000;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 </div>
 
-<iframe src="palette.html" seamless width="500" height="400"></iframe>
+<iframe id="palette" src="palette.html" seamless width="500" height="400"></iframe>
 
 <style type="text/css">
 iframe[seamless]{
-  border : none;
-  height : 300;
+border : none;
+height : 300;
 }</style>
 
 </body>

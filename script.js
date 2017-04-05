@@ -6,6 +6,7 @@ window.addEventListener("load",function(){
 	var clickDrag = new Array();
 	var paint;
 
+
 function addClick(x, y, dragging)
 {
   clickX.push(x);
@@ -41,7 +42,9 @@ document.addEventListener("mouseleave", function(e){
 
 function redraw(){
   context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-  context.strokeStyle = "#000000";
+  context.strokeStyle = rgbToHex(document.getElementById('palette').contentWindow.document.getElementById('resultat').name);
+	console.log(document.getElementById('palette').contentWindow.document.getElementById('resultat').name);
+	console.log(rgbToHex(document.getElementById('palette').contentWindow.document.getElementById('resultat').name));
   context.lineJoin = "round";
   context.lineWidth = 5;
 
@@ -58,4 +61,25 @@ function redraw(){
   }
 }
 
+function rgbToHex(rgb) {
+		var r ='', g='', b='';
+		for(var i = 0; rgb[i]!=',';i++){
+			r += rgb[i];
+		}
+		console.log("r = " + r);
+		for(var j = i+1; rgb[j]!=',';j++){
+			g += rgb[j];
+		}
+		console.log("g = " + g);
+
+		for(var k = j+1; k<rgb.length; k++){
+			b += rgb[k];
+		}
+		console.log("b = " + b);
+
+		r = parseInt(r);
+		g = parseInt(g);
+		b = parseInt(b);
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
 });
