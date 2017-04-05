@@ -1,5 +1,3 @@
-
-
 window.addEventListener("load",function(){
 	context = document.getElementById('myCanvas').getContext("2d");
 	div = document.getElementById('CanvasBox');
@@ -15,7 +13,7 @@ function addClick(x, y, dragging)
   clickDrag.push(dragging);
 }
 
-	
+
 document.addEventListener("mousedown", function(e){
   var mouseX = e.pageX - div.offsetLeft;
   var mouseY = e.pageY - div.offsetTop;
@@ -49,8 +47,8 @@ function redraw(){
   context.strokeStyle = "#000000";
   context.lineJoin = "round";
   context.lineWidth = 5;
-			
-  for(var i=0; i < clickX.length; i++) {		
+
+  for(var i=0; i < clickX.length; i++) {
     context.beginPath();
     if(clickDrag[i]){
       context.moveTo(clickX[i-1], clickY[i-1]);
@@ -64,6 +62,3 @@ function redraw(){
 }
 
 });
-
-
-
