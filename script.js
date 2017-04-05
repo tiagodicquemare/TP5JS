@@ -15,7 +15,6 @@ function clear(){
 	  clickY = new Array();
     clickDrag = new Array();
 		clickColor = new Array();
-
 }
 
 
@@ -75,19 +74,19 @@ function redraw(){
 function rgbToHex(rgb) {
 		var r ='', g='', b='';
 		if(rgb!=''){
-		for(var i = 0; rgb[i]!=',';i++){
-			r += rgb[i];
-		}
-		console.log("r = " + r);
-		for(var j = i+1; rgb[j]!=',';j++){
-			g += rgb[j];
-		}
-		console.log("g = " + g);
+			for(var i = 0; rgb[i]!=',';i++){
+				r += rgb[i];
+			}
+			console.log("r = " + r);
+			for(var j = i+1; rgb[j]!=',';j++){
+				g += rgb[j];
+			}
+			console.log("g = " + g);
 
-		for(var k = j+1; k<rgb.length; k++){
-			b += rgb[k];
-		}
-		console.log("b = " + b);
+			for(var k = j+1; k<rgb.length; k++){
+				b += rgb[k];
+			}
+			console.log("b = " + b);
 		}
 		r = parseInt(r);
 		g = parseInt(g);
