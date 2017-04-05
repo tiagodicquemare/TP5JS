@@ -6,13 +6,15 @@ window.addEventListener("load",function(){
 	var clickX = new Array();
 	var clickY = new Array();
 	var clickDrag = new Array();
+	var clickColor = new Array();
 	var paint;
 
 function clear(){
 	 context.clearRect(0, 0, context.canvas.width, context.canvas.height);
 	  clickX = new Array();
 	  clickY = new Array();
-      clickDrag = new Array();
+    clickDrag = new Array();
+		clickColor = new Array();
 
 }
 
@@ -22,6 +24,7 @@ function addClick(x, y, dragging)
   clickX.push(x);
   clickY.push(y);
   clickDrag.push(dragging);
+	clickColor.push(rgbToHex(document.getElementById('palette').contentWindow.document.getElementById('resultat').name));
 }
 
 
@@ -50,21 +53,14 @@ function addClick(x, y, dragging)
 
 
 function redraw(){
-  context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-  context.strokeStyle = rgbToHex(document.getElementById('palette').contentWindow.document.getElementById('resultat').name);
-	console.log(document.getElementById('palette').contentWindow.document.getElementById('resultat').name);
-	console.log(rgbToHex(document.getElementById('palette').contentWindow.document.getElementById('resultat').name));
-  context.lineJoin = "round";
-  context.lineWidth = 5;
-
-
-		function redraw(){
-		  context.strokeStyle = "#000000";
+  		context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+  		context.lineWidth = 5;
 		  context.lineJoin = "round";
 		  context.lineWidth = 5;
 
-		  for(var i=0; i < clickX.length; i++) {
-			context.beginPath();
+		  for(var i=0; i < clickX.length; i++){
+				context.beginPath();
+				context.strokeStyle = clickColor[i];
 			if(clickDrag[i]){
 			  context.moveTo(clickX[i-1], clickY[i-1]);
 			 }else{
@@ -73,8 +69,8 @@ function redraw(){
 			 context.lineTo(clickX[i], clickY[i]);
 			 context.closePath();
 			 context.stroke();
-		  }
 		}
+	}
 
 function rgbToHex(rgb) {
 		var r ='', g='', b='';
